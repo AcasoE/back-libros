@@ -9,6 +9,8 @@ const PORT = process.env.PORT;
 const cors = require("cors");
 //!traemos cloudinary par a todo el tema de subidas de archivos
 const cloudinary = require("cloudinary").v2
+const express = require("express");
+
 const server = express();
 server.use(cors());
 
@@ -24,7 +26,6 @@ cloudinary.config({
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET
 })
-const express = require("express");
 
 
 //? ejecutamos la variable que tiene la función express para tener las funciones que ejecutar para que realize el sevidor
