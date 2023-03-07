@@ -30,6 +30,7 @@ const userRoutes = require("./src/api/users/users.routes");
 
 //? ejecutamos la variable que tiene la función express para tener las funciones que ejecutar para que realize el sevidor
 const server = express();
+server.use(cors());
 
 //! MIDDELWARES PARA PODER INTERPRETAR BODYS DE UNA PETICION
 server.use(express.json());
@@ -40,7 +41,6 @@ server.use(express.urlencoded({ extended: true }));
 
 
 //declaramos loas accesos que queremos permitir con el cors antes de declarar las rutas, ahora acceso cualquiera
-server.use(cors());
 server.use("/libros", librosRoutes);
 server.use("/autores", AutoresRoutes);
 server.use("/usuarios", userRoutes)
