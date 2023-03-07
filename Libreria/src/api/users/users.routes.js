@@ -4,7 +4,7 @@ const userRoutes = require("express").Router()
 
 userRoutes.post("/", registro)
 userRoutes.post("/login", login)
-userRoutes.put("/:id", [isAuth], modifyUser)
+userRoutes.put("/:id", [isAdmin], modifyUser)
 
 
 

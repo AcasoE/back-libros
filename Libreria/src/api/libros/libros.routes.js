@@ -6,8 +6,8 @@ librosRoutes.get("/", getAllLibros);
 librosRoutes.get("/:id",[isAuth], getLibroById)
 librosRoutes.get("/getByTittle/:titulo", getByTittle)
 librosRoutes.post("/",[isAdmin], upload.single("caratula"), crearLibro)
-librosRoutes.delete("/:id", [isAuth], eliminarLibro)
-librosRoutes.delete("/deleteTitulo/:titulo", eliminarLibroPOrTitulo)
-librosRoutes.put("/:id", upload.single("caratula"), actualizarLibro, )
+librosRoutes.delete("/:id", [isAdmin], eliminarLibro)
+librosRoutes.delete("/deleteTitulo/:titulo",[isAdmin], eliminarLibroPOrTitulo)
+librosRoutes.put("/:id",[isAdmin], upload.single("caratula"), actualizarLibro, )
 
 module.exports = librosRoutes
