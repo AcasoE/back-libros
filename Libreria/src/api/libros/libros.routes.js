@@ -2,7 +2,7 @@ const { getAllLibros, getLibroById, getByTittle, crearLibro, eliminarLibro, elim
 const {isAuth, isAdmin} = require("../../middlewares/auth");
 const upload = require("../../middlewares/file");
 const librosRoutes = require("express").Router()
-librosRoutes.get("/", getAllLibros);
+librosRoutes.get("/",[isAuth], getAllLibros);
 librosRoutes.get("/:id",[isAuth], getLibroById)
 librosRoutes.get("/getByTittle/:titulo", getByTittle)
 librosRoutes.post("/",[isAdmin], upload.single("caratula"), crearLibro)

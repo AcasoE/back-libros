@@ -4,5 +4,5 @@ const {isAuth, isAdmin} = require("../../middlewares/auth")
 const { postAutor, getAutores} = require("./autores.controllers")
 
 AutoresRoutes.post("/",[isAdmin], postAutor)
-AutoresRoutes.get("/",[isAuth], getAutores)
+AutoresRoutes.get("/",[isAdmin], getAutores)
 module.exports = AutoresRoutes
