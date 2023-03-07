@@ -25,8 +25,7 @@ cloudinary.config({
   api_secret: process.env.API_SECRET
 })
 const express = require("express");
-const AutoresRoutes = require("./src/api/autores/autores.routes");
-const userRoutes = require("./src/api/users/users.routes");
+
 
 //? ejecutamos la variable que tiene la función express para tener las funciones que ejecutar para que realize el sevidor
 const server = express();
@@ -37,7 +36,8 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 //!controlador de errores recibe 4 parametros next( pasar a lo siguiente)
-
+const AutoresRoutes = require("./src/api/autores/autores.routes");
+const userRoutes = require("./src/api/users/users.routes");
 
 
 //declaramos loas accesos que queremos permitir con el cors antes de declarar las rutas, ahora acceso cualquiera
