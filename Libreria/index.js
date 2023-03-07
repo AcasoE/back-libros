@@ -9,8 +9,8 @@ const PORT = process.env.PORT;
 const cors = require("cors");
 //!traemos cloudinary par a todo el tema de subidas de archivos
 const cloudinary = require("cloudinary").v2
-//! importo las rutas de los controladores
-const librosRoutes = require("./src/api/libros/libros.routes");
+const server = express();
+server.use(cors());
 
 //* traemos la base de datos
 
@@ -28,14 +28,15 @@ const express = require("express");
 
 
 //? ejecutamos la variable que tiene la función express para tener las funciones que ejecutar para que realize el sevidor
-const server = express();
-server.use(cors());
+
 
 //! MIDDELWARES PARA PODER INTERPRETAR BODYS DE UNA PETICION
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 //!controlador de errores recibe 4 parametros next( pasar a lo siguiente)
+//! importo las rutas de los controladores
+const librosRoutes = require("./src/api/libros/libros.routes");
 const AutoresRoutes = require("./src/api/autores/autores.routes");
 const userRoutes = require("./src/api/users/users.routes");
 
