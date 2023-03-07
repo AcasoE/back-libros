@@ -9,10 +9,8 @@ const PORT = process.env.PORT;
 const cors = require("cors");
 //!traemos cloudinary par a todo el tema de subidas de archivos
 const cloudinary = require("cloudinary").v2
-const express = require("express");
-
-const server = express();
-server.use(cors());
+//! importo las rutas de los controladores
+const librosRoutes = require("./src/api/libros/libros.routes");
 
 //* traemos la base de datos
 
@@ -26,20 +24,20 @@ cloudinary.config({
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET
 })
-
+const express = require("express");
+const AutoresRoutes = require("./src/api/autores/autores.routes");
+const userRoutes = require("./src/api/users/users.routes");
 
 //? ejecutamos la variable que tiene la función express para tener las funciones que ejecutar para que realize el sevidor
-
+const server = express();
+server.use(cors());
 
 //! MIDDELWARES PARA PODER INTERPRETAR BODYS DE UNA PETICION
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 //!controlador de errores recibe 4 parametros next( pasar a lo siguiente)
-//! importo las rutas de los controladores
-const librosRoutes = require("./src/api/libros/libros.routes");
-const AutoresRoutes = require("./src/api/autores/autores.routes");
-const userRoutes = require("./src/api/users/users.routes");
+
 
 
 //declaramos loas accesos que queremos permitir con el cors antes de declarar las rutas, ahora acceso cualquiera
